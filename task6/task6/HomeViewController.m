@@ -43,8 +43,8 @@
     self.systemLabel.textColor = [UIColor colorWithHexString:@"#101010"];
     
     [self.stackView
-        insertArrangedSubview:[ShapeView new]
-        atIndex:1
+     insertArrangedSubview:[ShapeView new]
+     atIndex:2
     ];
     
     self.headerView.backgroundColor = [UIColor colorWithHexString:@"#F9CC78"];
@@ -58,6 +58,9 @@
     
     self.startButton.backgroundColor = [UIColor colorWithHexString:@"#F9CC78"];
     self.openCvButton.backgroundColor = [UIColor colorWithHexString:@"#EE686A"];
+    
+    
+    
 }
 - (IBAction)openGit:(id)sender {
     [[UIApplication sharedApplication]

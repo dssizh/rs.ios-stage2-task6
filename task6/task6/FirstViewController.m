@@ -10,6 +10,7 @@
 #import "UIColor+UIColor_category.h"
 #import "GalleryViewController.h"
 #import "GalleryTabBarViewController.h"
+#import "ShapeView.h"
 
 static CGFloat const kButtonViewWidth = 300;
 static CGFloat const kButtonViewHeight = 55;
@@ -26,6 +27,10 @@ static CGFloat const kButtonViewHeight = 55;
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.whiteColor;
     [self setupViews];
+}
+
+- (void)viewDidLayoutSubviews {
+    
 }
 
 - (void) setupViews {
@@ -50,8 +55,12 @@ static CGFloat const kButtonViewHeight = 55;
     [self.view addSubview:lable];
     [self.view addSubview:button];
     
+    ShapeView *shapeView = [[ShapeView alloc] init];
+    [self.view addSubview:shapeView];
+    
     button.translatesAutoresizingMaskIntoConstraints = false;
     lable.translatesAutoresizingMaskIntoConstraints = false;
+//    shapeView.translatesAutoresizingMaskIntoConstraints = false;
 
     [NSLayoutConstraint activateConstraints:@[
         [button.topAnchor constraintEqualToAnchor:self.view.centerYAnchor constant:self.view.bounds.size.height/4],
@@ -62,17 +71,31 @@ static CGFloat const kButtonViewHeight = 55;
         [lable.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
         [lable.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor constant:-self.view.bounds.size.height/4],
         [lable.widthAnchor constraintEqualToConstant:200],
-        [lable.heightAnchor constraintEqualToConstant:40]
+        [lable.heightAnchor constraintEqualToConstant:40],
+        
+        [shapeView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
+        [shapeView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor],
+//        [shapeView.widthAnchor constraintEqualToConstant:kButtonViewWidth],
+//        [shapeView.heightAnchor constraintEqualToConstant:84]
     ]];
     
 }
 
--(void)setSelectedViewController:(UIViewController *)selectedViewController {
-    [self transitionToChildViewController:selectedViewController];
-    _selectedViewController = selectedViewController;
-//    [self updateButtonSelection];
-}
-
+//- (void) setupFigures {
+//
+//    UIStackView *stackView = [[UIStackView alloc] initWithFrame:CGRectMake(200, 200, 70, 70)];
+//
+//    UIView *square = [[UIView alloc] initWithFrame:CGRectMake(200, 200, 70, 70)];
+//    square.backgroundColor = [UIColor colorWithHexString:@"#29C2D1"];
+//    [self.view addSubview:square];
+//}
+//
+//-(void)setSelectedViewController:(UIViewController *)selectedViewController {
+//    [self transitionToChildViewController:selectedViewController];
+//    _selectedViewController = selectedViewController;
+////    [self updateButtonSelection];
+//}
+//
 -(void)setGalleryTabBarController:(UIViewController *)galleryTabBarController {
     [self transitionToChildViewController:galleryTabBarController];
     _galleryTabBarController = galleryTabBarController;

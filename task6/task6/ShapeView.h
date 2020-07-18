@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ShapeView : UIView
+@interface ShapeView : UIStackView
 
 @end
 
